@@ -107,3 +107,22 @@ sudo lsof | egrep "[process_id]"
 strace -e trace=file -f -o mytrace.log [program]
 strace -e trace=file -f -o mytrace.log -p [process_id] (edited) 
 ```
+
+# Things that I have done
+
+`sudo apt install nmap`
+
+- this will actually install nmap to your machine 
+
+`which nmap`
+
+- shows me where nmap installed on my device (in my case /usr/bin/nmap - the /usr/bin will be the default installation path for user binaries or programs that are "ready-to-run" by normal users)
+
+`file nmap`
+
+- shows me basic information about the nmap binary. output of this command below:
+
+`nmap: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=abeaeb9c57cd40a2fca33be55267d325a72233b7, for GNU/Linux 3.2.0, stripped
+`
+
+
