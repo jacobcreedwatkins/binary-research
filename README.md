@@ -110,19 +110,19 @@ strace -e trace=file -f -o mytrace.log -p [process_id] (edited)
 
 # Things that I have done
 
-`sudo apt install nmap`
+`> sudo apt install nmap`
 
 - this will actually install nmap to your machine 
 
-`which nmap`
+`> which nmap`
 
 - shows me where nmap installed on my device (in my case /usr/bin/nmap - the /usr/bin will be the default installation path for user binaries or programs that are "ready-to-run" by normal users)
 
-`file nmap`
+`> file nmap`
 
 - shows me basic information about the nmap binary. output of this command below:
 
-`nmap: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=abeaeb9c57cd40a2fca33be55267d325a72233b7, for GNU/Linux 3.2.0, stripped
+`> nmap: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=abeaeb9c57cd40a2fca33be55267d325a72233b7, for GNU/Linux 3.2.0, stripped
 `
 
 ## OSINT (google)
@@ -132,11 +132,24 @@ strace -e trace=file -f -o mytrace.log -p [process_id] (edited)
 - nmap's official website is a treasure trove of information all about nmap
 - the most important section is the reference guide, containing syntax examples, options and their functions, and other important information regarding the tool's usage
 
+## Kernel Modueles
+
+- To find the kernel modules being used by nmap, I used a tool known as GDB (GNU DeBugger)
+- What does GNU actually stand for? "GNU's Not Unix", kind of funny history tidbit there.
+
+Commands actually run:
 ```
-Finding kernel modules for a program can be done using gdb. This returns all shared libraries in use for the running time of the program:
-  sudo gdb [program]
-  start
-  info sharedlibrary
-Finding out whether or not a program interacts with the network can be done through lsof, ss, or netstat:
-  sudo lsof -i, ss -ntlp, netstat -antl
+> sudo gdb nmap
+> start
+> info sharedlibrary
 ```
+
+### What is actually happening here?
+
+1. first we open up gdb with super user permissions and run nmap
+2. `start` is self explanatory, we start the debugger
+3. `info sharedlibrary` shows information about the loaded libraries, their addresses and state of the debugging symbols.
+
+
+website I got the above information from: [visualgdb.com](https://visualgdb.com/gdbreference/commands/sharedlibrary)
+
