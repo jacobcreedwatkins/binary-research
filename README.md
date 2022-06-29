@@ -127,6 +127,16 @@ strace -e trace=file -f -o mytrace.log -p [process_id] (edited)
 
 ## OSINT (google)
 
-[nmap.org website](www.nmap.org)
+[nmap.org website](https://nmap.org/)
 
+- nmap's official website is a treasure trove of information all about nmap
+- the most important section is the reference guide, containing syntax examples, options and their functions, and other important information regarding the tool's usage
 
+```
+Finding kernel modules for a program can be done using gdb. This returns all shared libraries in use for the running time of the program:
+  sudo gdb [program]
+  start
+  info sharedlibrary
+Finding out whether or not a program interacts with the network can be done through lsof, ss, or netstat:
+  sudo lsof -i, ss -ntlp, netstat -antl
+```
