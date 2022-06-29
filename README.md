@@ -152,17 +152,21 @@ Commands run:
 1. first we open up gdb with super user permissions and run nmap
 2. `start` is self explanatory, we start the debugger
 3. `info sharedlibrary` shows information about the loaded libraries, their addresses and state of the debugging symbols.
-4. A shared library/dynamic Library is a library that is loaded dynamically at runtime for each application that requires it. Dynamic Linking doesn't require the code to be copied, it is done by just placing name of the library in the binary file. So, each library listed in the code.
 
 
+#### Shared vs Dynamic Libraries (additional research)
 website I got the above information from: [visualgdb.com](https://visualgdb.com/gdbreference/commands/sharedlibrary)
 
-from u/Codo on [stackexchange](https://stackoverflow.com/questions/56899488/what-is-the-difference-between-shared-and-dynamic-libraries-in-c)
-
-- "In the shared library case, you specify the shared library at compile-time. When the app is started, the operating system will load the shared library before the application starts."
-
-- "In the dynamic libary case, the library is not specified at compile-time, so it's not loaded by the operating system. Instead, your application will contain some code to load the library."
+- from u/Codo on [stackexchange](https://stackoverflow.com/questions/56899488/what-is-the-difference-between-shared-and-dynamic-libraries-in-c): "In the shared library case, you specify the shared library at compile-time. When the app is started, the operating system will load the shared library before the application starts. In the dynamic libary case, the library is not specified at compile-time, so it's not loaded by the operating system. Instead, your application will contain some code to load the library."
 
 - in my own words: with a shared libraries, you are specifying the libraries to be used by the program at compile-time. Once the program is run, the operating system will load the shared library before the application actually starts.
 
 - with dynamic linked libraries, the library is not specified at compile-time. instead, the application will contain some code to load the library. essentially these are two ways of performing the same task that are ever so slightly different.
+
+
+- actual code output of command:
+- ![image](https://user-images.githubusercontent.com/100236631/176528450-25bb1223-d8f4-4983-917e-d07038c3354b.png)
+
+- Here we can 
+
+
