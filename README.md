@@ -137,19 +137,30 @@ strace -e trace=file -f -o mytrace.log -p [process_id] (edited)
 - To find the kernel modules being used by nmap, I used a tool known as GDB (GNU DeBugger)
 - What does GNU actually stand for? "GNU's Not Unix", kind of funny history tidbit there.
 
-Commands actually run:
+Commands run:
 ```
 > sudo gdb nmap
 > start
 > info sharedlibrary
 ```
 
-### What is actually happening here?
+- Output of `info sharedlibrary`
+
+
+### What is happening here?
 
 1. first we open up gdb with super user permissions and run nmap
 2. `start` is self explanatory, we start the debugger
 3. `info sharedlibrary` shows information about the loaded libraries, their addresses and state of the debugging symbols.
+4. A shared library/ Dynamic Library is a library that is loaded dynamically at runtime for each application that requires it. Dynamic Linking doesn't require the code to be copied, it is done by just placing name of the library in the binary file. So, each library listed in the 
 
 
 website I got the above information from: [visualgdb.com](https://visualgdb.com/gdbreference/commands/sharedlibrary)
+
+from u/Codo on [stackexchange](https://stackoverflow.com/questions/56899488/what-is-the-difference-between-shared-and-dynamic-libraries-in-c)
+
+    In the shared library case, you specify the shared library at compile-time. When the app is started, the operating system will load the shared library before the application starts.
+
+    In the dynamic libary case, the library is not specified at compile-time, so it's not loaded by the operating system. Instead, your application will contain some code to load the library.
+
 
