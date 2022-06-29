@@ -167,6 +167,6 @@ website I got the above information from: [visualgdb.com](https://visualgdb.com/
 - actual code output of command:
 - ![image](https://user-images.githubusercontent.com/100236631/176528450-25bb1223-d8f4-4983-917e-d07038c3354b.png)
 
-- Here we can 
+Here underneath the "shared object library" column, we can see every single shared library being used by nmap, along with the memory addresses they are found at (From / To) and the symbols being read 
 
 
