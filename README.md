@@ -169,7 +169,7 @@ website I got the above information from: [visualgdb.com](https://visualgdb.com/
 
 Here underneath the "shared object library" column, we can see every single shared library being used by nmap, along with the memory addresses they are found at (From / To) and the symbols being read 
 
-#### strace
+#### strace (file interactions)
 - strace is used to find system calls being performed by the binary
 
 
