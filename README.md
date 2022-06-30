@@ -177,3 +177,8 @@ Here underneath the "shared object library" column, we can see every single shar
 
 ![image](https://user-images.githubusercontent.com/100236631/176678939-61c3028c-3d08-4a76-b4af-360e71617cf4.png)
 
+
+### Networkk Information
+
+![image](https://user-images.githubusercontent.com/100236631/176679459-02f3c5c3-46ab-44b7-b8d8-4d519649bdf0.png)
+
